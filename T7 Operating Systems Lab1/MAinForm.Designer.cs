@@ -40,24 +40,24 @@
             this.nudPossibility = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.OneTact = new System.Windows.Forms.Timer(this.components);
+            this.queue = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             this.SuspendLayout();
             // 
             // lTasks
             // 
-            this.lTasks.AutoArrange = false;
             this.lTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.lTasks.FullRowSelect = true;
             this.lTasks.GridLines = true;
             this.lTasks.HoverSelection = true;
             this.lTasks.Location = new System.Drawing.Point(12, 64);
             this.lTasks.Name = "lTasks";
-            this.lTasks.Size = new System.Drawing.Size(831, 483);
+            this.lTasks.Size = new System.Drawing.Size(542, 483);
             this.lTasks.TabIndex = 0;
             this.lTasks.UseCompatibleStateImageBehavior = false;
             this.lTasks.View = System.Windows.Forms.View.Details;
@@ -65,6 +65,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "#";
+            this.columnHeader1.Width = 62;
             // 
             // columnHeader2
             // 
@@ -74,15 +75,17 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Length ";
+            this.columnHeader3.Width = 68;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Complete time";
-            this.columnHeader4.Width = 94;
+            this.columnHeader4.Width = 101;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Delay";
+            this.columnHeader5.Width = 86;
             // 
             // bStart
             // 
@@ -123,7 +126,7 @@
             this.nudPossibility.TabIndex = 3;
             this.nudPossibility.ThousandsSeparator = true;
             this.nudPossibility.Value = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             65536});
@@ -142,6 +145,24 @@
             this.OneTact.Interval = 50;
             this.OneTact.Tick += new System.EventHandler(this.OneTact_Tick);
             // 
+            // queue
+            // 
+            this.queue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6});
+            this.queue.GridLines = true;
+            this.queue.HoverSelection = true;
+            this.queue.Location = new System.Drawing.Point(698, 64);
+            this.queue.Name = "queue";
+            this.queue.Size = new System.Drawing.Size(134, 483);
+            this.queue.TabIndex = 5;
+            this.queue.UseCompatibleStateImageBehavior = false;
+            this.queue.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "#";
+            this.columnHeader6.Width = 119;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.bStart;
@@ -149,6 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(855, 559);
+            this.Controls.Add(this.queue);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudPossibility);
             this.Controls.Add(this.bStop);
@@ -178,6 +200,8 @@
         private System.Windows.Forms.NumericUpDown nudPossibility;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer OneTact;
+        private System.Windows.Forms.ListView queue;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

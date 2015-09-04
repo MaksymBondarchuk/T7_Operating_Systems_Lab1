@@ -18,7 +18,7 @@ namespace T7_Operating_Systems_Lab1
         {
             this.number = number;
             this.spawned_on = spawned_on;
-            length = (new Random()).Next(1, 11);    // from 1 till 10
+            length = (new Random()).Next(1, 20);    // from 1 till 10
         }
 
 
