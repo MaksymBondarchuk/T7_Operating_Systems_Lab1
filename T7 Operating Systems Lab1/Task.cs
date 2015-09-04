@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace T7_Operating_Systems_Lab1
 {
@@ -18,9 +14,7 @@ namespace T7_Operating_Systems_Lab1
         {
             this.number = number;
             this.spawned_on = spawned_on;
-            length = (new Random()).Next(1, 20);    // from 1 till 10
+            length = (new Random()).Next(1, 21);    // from 1 till 10
         }
-
-
     }
 }
