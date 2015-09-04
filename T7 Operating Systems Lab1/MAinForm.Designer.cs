@@ -93,7 +93,7 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(229, 64);
+            this.bStart.Location = new System.Drawing.Point(230, 64);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -104,7 +104,7 @@
             // bStop
             // 
             this.bStop.Enabled = false;
-            this.bStop.Location = new System.Drawing.Point(310, 64);
+            this.bStop.Location = new System.Drawing.Point(311, 64);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(75, 23);
             this.bStop.TabIndex = 2;
@@ -173,7 +173,7 @@
             // bBegin
             // 
             this.bBegin.Enabled = false;
-            this.bBegin.Location = new System.Drawing.Point(391, 64);
+            this.bBegin.Location = new System.Drawing.Point(392, 64);
             this.bBegin.Name = "bBegin";
             this.bBegin.Size = new System.Drawing.Size(75, 23);
             this.bBegin.TabIndex = 6;
@@ -186,7 +186,7 @@
             this.lAverage.AutoSize = true;
             this.lAverage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lAverage.ForeColor = System.Drawing.Color.Maroon;
-            this.lAverage.Location = new System.Drawing.Point(188, 20);
+            this.lAverage.Location = new System.Drawing.Point(189, 20);
             this.lAverage.Name = "lAverage";
             this.lAverage.Size = new System.Drawing.Size(0, 29);
             this.lAverage.TabIndex = 7;
