@@ -40,8 +40,10 @@
             this.nudPossibility = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.OneTact = new System.Windows.Forms.Timer(this.components);
-            this.queue = new System.Windows.Forms.ListView();
+            this.lQueue = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bBegin = new System.Windows.Forms.Button();
+            this.lAverage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,23 +147,43 @@
             this.OneTact.Interval = 50;
             this.OneTact.Tick += new System.EventHandler(this.OneTact_Tick);
             // 
-            // queue
+            // lQueue
             // 
-            this.queue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lQueue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6});
-            this.queue.GridLines = true;
-            this.queue.HoverSelection = true;
-            this.queue.Location = new System.Drawing.Point(698, 64);
-            this.queue.Name = "queue";
-            this.queue.Size = new System.Drawing.Size(134, 483);
-            this.queue.TabIndex = 5;
-            this.queue.UseCompatibleStateImageBehavior = false;
-            this.queue.View = System.Windows.Forms.View.Details;
+            this.lQueue.GridLines = true;
+            this.lQueue.HoverSelection = true;
+            this.lQueue.Location = new System.Drawing.Point(704, 64);
+            this.lQueue.Name = "lQueue";
+            this.lQueue.Size = new System.Drawing.Size(128, 483);
+            this.lQueue.TabIndex = 5;
+            this.lQueue.UseCompatibleStateImageBehavior = false;
+            this.lQueue.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "#";
             this.columnHeader6.Width = 119;
+            // 
+            // bBegin
+            // 
+            this.bBegin.Location = new System.Drawing.Point(350, 35);
+            this.bBegin.Name = "bBegin";
+            this.bBegin.Size = new System.Drawing.Size(75, 23);
+            this.bBegin.TabIndex = 6;
+            this.bBegin.Text = "To begin";
+            this.bBegin.UseVisualStyleBackColor = true;
+            this.bBegin.Click += new System.EventHandler(this.bBegin_Click);
+            // 
+            // lAverage
+            // 
+            this.lAverage.AutoSize = true;
+            this.lAverage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lAverage.ForeColor = System.Drawing.Color.Maroon;
+            this.lAverage.Location = new System.Drawing.Point(431, 24);
+            this.lAverage.Name = "lAverage";
+            this.lAverage.Size = new System.Drawing.Size(0, 29);
+            this.lAverage.TabIndex = 7;
             // 
             // MainForm
             // 
@@ -170,7 +192,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(855, 559);
-            this.Controls.Add(this.queue);
+            this.Controls.Add(this.lAverage);
+            this.Controls.Add(this.bBegin);
+            this.Controls.Add(this.lQueue);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudPossibility);
             this.Controls.Add(this.bStop);
@@ -200,8 +224,10 @@
         private System.Windows.Forms.NumericUpDown nudPossibility;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer OneTact;
-        private System.Windows.Forms.ListView queue;
+        private System.Windows.Forms.ListView lQueue;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button bBegin;
+        private System.Windows.Forms.Label lAverage;
     }
 }
 

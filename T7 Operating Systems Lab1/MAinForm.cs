@@ -19,6 +19,10 @@ namespace T7_Operating_Systems_Lab1
         bool is_free = true;
         int will_be_not_free_for;
 
+        // For calculating average value
+        int waited_sum = 0;
+        int tasks_sum = 0;
+
         public MainForm()
         {
             InitializeComponent();
@@ -27,19 +31,23 @@ namespace T7_Operating_Systems_Lab1
         private void bStart_Click(object sender, EventArgs e)
         {
             OneTact.Start();
-
-            //string[] strs = { "1", "2", "3", "4", "5" };
-            //ListViewItem item = new ListViewItem(strs);
-            //lTasks.Items.Add(item);
+            lAverage.Text = "";
         }
 
         private void bStop_Click(object sender, EventArgs e)
         {
             OneTact.Stop();
 
-            //string[] strs = { "1", "2", "Some", "4", "5" };
-            //ListViewItem item = new ListViewItem(strs);
-            //lTasks.Items[2] = item;
+            
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                if (tasks[i].completed_on != -1)
+                {
+                    waited_sum += tasks[i].tacts_waited;
+                    tasks_sum++;
+                }
+            }
+            lAverage.Text = String.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString() + " tacts");
         }
 
         private void OneTact_Tick(object sender, EventArgs e)
@@ -115,9 +123,25 @@ namespace T7_Operating_Systems_Lab1
                 lTasks.Items[now_working_with_task] = item;
 
                 string[] strs1 = { tasks[now_working_with_task].number.ToString() };
-                queue.Items.Add(new ListViewItem(strs1));
+                lQueue.Items.Add(new ListViewItem(strs1));
+                if (0 < lQueue.Items.Count)
+                    lQueue.EnsureVisible(lQueue.Items.Count - 1);
             }
 
+        }
+
+        private void bBegin_Click(object sender, EventArgs e)
+        {
+            OneTact.Stop();
+            lTasks.Items.Clear();
+            lQueue.Items.Clear();
+            tasks.Clear();
+            current_tact = 0;
+            number = 0;
+            now_working_with_task = -1;
+            is_free = true;
+            waited_sum = 0;
+            tasks_sum = 0;
         }
     }
 }
