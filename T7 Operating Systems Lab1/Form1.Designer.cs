@@ -45,6 +45,7 @@
             // 
             // lTasks
             // 
+            this.lTasks.AutoArrange = false;
             this.lTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -53,9 +54,10 @@
             this.columnHeader5});
             this.lTasks.FullRowSelect = true;
             this.lTasks.GridLines = true;
-            this.lTasks.Location = new System.Drawing.Point(351, 257);
+            this.lTasks.HoverSelection = true;
+            this.lTasks.Location = new System.Drawing.Point(12, 64);
             this.lTasks.Name = "lTasks";
-            this.lTasks.Size = new System.Drawing.Size(430, 172);
+            this.lTasks.Size = new System.Drawing.Size(831, 483);
             this.lTasks.TabIndex = 0;
             this.lTasks.UseCompatibleStateImageBehavior = false;
             this.lTasks.View = System.Windows.Forms.View.Details;
@@ -84,7 +86,7 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(519, 156);
+            this.bStart.Location = new System.Drawing.Point(188, 35);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -94,7 +96,7 @@
             // 
             // bStop
             // 
-            this.bStop.Location = new System.Drawing.Point(600, 156);
+            this.bStop.Location = new System.Drawing.Point(269, 35);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(75, 23);
             this.bStop.TabIndex = 2;
@@ -142,6 +144,7 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.bStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

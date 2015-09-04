@@ -12,6 +12,11 @@ namespace T7_Operating_Systems_Lab1
 {
     public partial class MainForm : Form
     {
+        List<Task> tasks = new List<Task>();
+        int current_tact = 0;
+        int number = 0;
+        bool is_free = true;
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,26 +26,44 @@ namespace T7_Operating_Systems_Lab1
         {
             OneTact.Start();
 
-            string[] strs = { "1", "2", "3", "4", "5" };
-            ListViewItem item = new ListViewItem(strs);
-            lTasks.Items.Add(item);
+            //string[] strs = { "1", "2", "3", "4", "5" };
+            //ListViewItem item = new ListViewItem(strs);
+            //lTasks.Items.Add(item);
         }
 
         private void bStop_Click(object sender, EventArgs e)
         {
-            string[] strs = { "1", "2", "Some", "4", "5" };
-            ListViewItem item = new ListViewItem(strs);
-            lTasks.Items[2] = item;
+            OneTact.Stop();
+
+            //string[] strs = { "1", "2", "Some", "4", "5" };
+            //ListViewItem item = new ListViewItem(strs);
+            //lTasks.Items[2] = item;
         }
 
         private void OneTact_Tick(object sender, EventArgs e)
         {
+            current_tact++;
+
             //Random gen = new Random();
             //int prob = (new Random()).Next(100);
             if ((new Random()).Next(100) < nudPossibility.Value * 100)
-            {   // Yep
+            {
+                tasks.Add(new Task(number++, current_tact));
+                string[] strs = { tasks[tasks.Count - 1].number.ToString(),
+                    tasks[tasks.Count - 1].spawned_on.ToString(),
+                    tasks[tasks.Count - 1].length.ToString(),
+                    "Not completed yet", "Not completed yet" };
+                ListViewItem item = new ListViewItem(strs);
+                lTasks.Items.Add(item);
+                if (0 < lTasks.Items.Count)
+                    lTasks.EnsureVisible(lTasks.Items.Count - 1);
+            }
+
+            if (is_free)
+            {
 
             }
+
         }
     }
 }
