@@ -44,11 +44,14 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bBegin = new System.Windows.Forms.Button();
             this.lAverage = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             this.SuspendLayout();
             // 
             // lTasks
             // 
+            this.lTasks.AutoArrange = false;
             this.lTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -56,10 +59,9 @@
             this.columnHeader4,
             this.columnHeader5});
             this.lTasks.GridLines = true;
-            this.lTasks.HoverSelection = true;
-            this.lTasks.Location = new System.Drawing.Point(12, 64);
+            this.lTasks.Location = new System.Drawing.Point(12, 110);
             this.lTasks.Name = "lTasks";
-            this.lTasks.Size = new System.Drawing.Size(542, 483);
+            this.lTasks.Size = new System.Drawing.Size(455, 483);
             this.lTasks.TabIndex = 0;
             this.lTasks.UseCompatibleStateImageBehavior = false;
             this.lTasks.View = System.Windows.Forms.View.Details;
@@ -71,17 +73,17 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Spawn time";
+            this.columnHeader2.Text = "Spawned on";
             this.columnHeader2.Width = 83;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Length ";
-            this.columnHeader3.Width = 68;
+            this.columnHeader3.Text = "Length (in tacts)";
+            this.columnHeader3.Width = 114;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Complete time";
+            this.columnHeader4.Text = "Completed on";
             this.columnHeader4.Width = 101;
             // 
             // columnHeader5
@@ -91,7 +93,7 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(188, 35);
+            this.bStart.Location = new System.Drawing.Point(229, 64);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -101,7 +103,8 @@
             // 
             // bStop
             // 
-            this.bStop.Location = new System.Drawing.Point(269, 35);
+            this.bStop.Enabled = false;
+            this.bStop.Location = new System.Drawing.Point(310, 64);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(75, 23);
             this.bStop.TabIndex = 2;
@@ -112,19 +115,20 @@
             // nudPossibility
             // 
             this.nudPossibility.DecimalPlaces = 2;
+            this.nudPossibility.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nudPossibility.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.nudPossibility.Location = new System.Drawing.Point(29, 38);
+            this.nudPossibility.Location = new System.Drawing.Point(12, 41);
             this.nudPossibility.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudPossibility.Name = "nudPossibility";
-            this.nudPossibility.Size = new System.Drawing.Size(84, 20);
+            this.nudPossibility.Size = new System.Drawing.Size(109, 22);
             this.nudPossibility.TabIndex = 3;
             this.nudPossibility.ThousandsSeparator = true;
             this.nudPossibility.Value = new decimal(new int[] {
@@ -136,9 +140,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 22);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(9, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(112, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Spawn possibility";
             // 
@@ -153,7 +158,7 @@
             this.columnHeader6});
             this.lQueue.GridLines = true;
             this.lQueue.HoverSelection = true;
-            this.lQueue.Location = new System.Drawing.Point(704, 64);
+            this.lQueue.Location = new System.Drawing.Point(473, 110);
             this.lQueue.Name = "lQueue";
             this.lQueue.Size = new System.Drawing.Size(128, 483);
             this.lQueue.TabIndex = 5;
@@ -167,7 +172,8 @@
             // 
             // bBegin
             // 
-            this.bBegin.Location = new System.Drawing.Point(350, 35);
+            this.bBegin.Enabled = false;
+            this.bBegin.Location = new System.Drawing.Point(391, 64);
             this.bBegin.Name = "bBegin";
             this.bBegin.Size = new System.Drawing.Size(75, 23);
             this.bBegin.TabIndex = 6;
@@ -180,10 +186,31 @@
             this.lAverage.AutoSize = true;
             this.lAverage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lAverage.ForeColor = System.Drawing.Color.Maroon;
-            this.lAverage.Location = new System.Drawing.Point(431, 24);
+            this.lAverage.Location = new System.Drawing.Point(188, 20);
             this.lAverage.Name = "lAverage";
             this.lAverage.Size = new System.Drawing.Size(0, 29);
             this.lAverage.TabIndex = 7;
+            this.lAverage.Click += new System.EventHandler(this.lAverage_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(9, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Tasks information";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(470, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Performation order";
             // 
             // MainForm
             // 
@@ -191,7 +218,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(855, 559);
+            this.ClientSize = new System.Drawing.Size(621, 605);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lAverage);
             this.Controls.Add(this.bBegin);
             this.Controls.Add(this.lQueue);
@@ -228,6 +257,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button bBegin;
         private System.Windows.Forms.Label lAverage;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -32,13 +32,17 @@ namespace T7_Operating_Systems_Lab1
         {
             OneTact.Start();
             lAverage.Text = "";
+
+            bStart.Enabled = false;
+            bStop.Enabled = true;
+            bBegin.Enabled = true;
         }
 
         private void bStop_Click(object sender, EventArgs e)
         {
             OneTact.Stop();
 
-            
+
             for (int i = 0; i < tasks.Count; i++)
             {
                 if (tasks[i].completed_on != -1)
@@ -47,7 +51,11 @@ namespace T7_Operating_Systems_Lab1
                     tasks_sum++;
                 }
             }
-            lAverage.Text = String.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString() + " tacts");
+
+            lAverage.Text = String.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString("0.00") + " tacts");
+
+            bStart.Enabled = true;
+            bStop.Enabled = false;
         }
 
         private void OneTact_Tick(object sender, EventArgs e)
@@ -142,6 +150,15 @@ namespace T7_Operating_Systems_Lab1
             is_free = true;
             waited_sum = 0;
             tasks_sum = 0;
+
+            bStart.Enabled = true;
+            bStop.Enabled = false;
+            lAverage.Text = "";
+        }
+
+        private void lAverage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
