@@ -140,6 +140,7 @@ namespace T7_Operating_Systems_Lab1
 
         private void bBegin_Click(object sender, EventArgs e)
         {
+            // Rollback
             OneTact.Stop();
             lTasks.Items.Clear();
             lQueue.Items.Clear();
