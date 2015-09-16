@@ -78,7 +78,7 @@ namespace T7_Operating_Systems_Lab1
                     is_free = true;
 
                     // Calculating finish time
-                    tasks[now_working_with_task].completed_on = current_tact - tasks[now_working_with_task].tacts_waited;
+                    tasks[now_working_with_task].completed_on = current_tact;
 
                     string[] strs = { tasks[now_working_with_task].number.ToString(),
                         tasks[now_working_with_task].spawned_on.ToString(),
