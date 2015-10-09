@@ -94,30 +94,7 @@ namespace T7_Operating_Systems_Lab1
             if (is_free)
             {
                 is_free = false;
-
-                // Finding shortest task to do
-                int min_length = -1;
-                for (int i = 0; i < tasks.Count; i++)
-                    if (tasks[i].completed_on == -1)
-                    {
-                        min_length = tasks[i].length;
-                        break;
-                    }
-
-                // In case if tasks weren't generated for a while (e.g. with 0 possibility)
-                if (min_length == -1)
-                {
-                    is_free = true;
-                    return;
-                }
-
-                for (int i = 0; i < tasks.Count; i++)
-                    if (tasks[i].completed_on == -1 && tasks[i].length <= min_length)
-                    {
-                        min_length = tasks[i].length;
-                        now_working_with_task = i;
-                        will_be_not_free_for = tasks[i].length;
-                    }
+                now_working_with_task++;
 
                 // Calculating how long task waited
                 tasks[now_working_with_task].tacts_waited = current_tact - tasks[now_working_with_task].spawned_on;
@@ -135,7 +112,6 @@ namespace T7_Operating_Systems_Lab1
                 if (0 < lQueue.Items.Count)
                     lQueue.EnsureVisible(lQueue.Items.Count - 1);
             }
-
         }
 
         private void bBegin_Click(object sender, EventArgs e)
