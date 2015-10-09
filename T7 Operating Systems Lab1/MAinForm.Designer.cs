@@ -50,6 +50,7 @@
             this.cbTestMode = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.nudLength = new System.Windows.Forms.NumericUpDown();
+            this.lCoeficient = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             this.SuspendLayout();
@@ -141,6 +142,7 @@
             0,
             0,
             65536});
+            this.nudPossibility.ValueChanged += new System.EventHandler(this.nudPossibility_ValueChanged);
             // 
             // label1
             // 
@@ -191,7 +193,7 @@
             this.lAverage.AutoSize = true;
             this.lAverage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lAverage.ForeColor = System.Drawing.Color.Maroon;
-            this.lAverage.Location = new System.Drawing.Point(189, 20);
+            this.lAverage.Location = new System.Drawing.Point(166, 20);
             this.lAverage.Name = "lAverage";
             this.lAverage.Size = new System.Drawing.Size(0, 29);
             this.lAverage.TabIndex = 7;
@@ -261,6 +263,17 @@
             0,
             0,
             0});
+            this.nudLength.ValueChanged += new System.EventHandler(this.nudLength_ValueChanged);
+            // 
+            // lCoeficient
+            // 
+            this.lCoeficient.AutoSize = true;
+            this.lCoeficient.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lCoeficient.ForeColor = System.Drawing.Color.Maroon;
+            this.lCoeficient.Location = new System.Drawing.Point(166, 49);
+            this.lCoeficient.Name = "lCoeficient";
+            this.lCoeficient.Size = new System.Drawing.Size(0, 29);
+            this.lCoeficient.TabIndex = 13;
             // 
             // MainForm
             // 
@@ -269,6 +282,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(621, 636);
+            this.Controls.Add(this.lCoeficient);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nudLength);
             this.Controls.Add(this.cbTestMode);
@@ -317,6 +331,7 @@
         private System.Windows.Forms.CheckBox cbTestMode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudLength;
+        private System.Windows.Forms.Label lCoeficient;
     }
 }
 

@@ -12,8 +12,8 @@ namespace T7_Operating_Systems_Lab1
         int now_working_with_task = -1;     // Index in list/table
         bool is_free = true;                // Shows does processor works on some task now (on current tact)
         int will_be_not_free_for;           // How many tacts left to complete current task
-        bool was_first = false;
         int task_length;
+        int tacts_when_resourse_was_free = 0;
 
         // For calculating average value
         int waited_sum = 0;
@@ -30,6 +30,7 @@ namespace T7_Operating_Systems_Lab1
             if (cbTestMode.Checked)
                 timerTest.Start();
             lAverage.Text = "";
+            lCoeficient.Text = "";
 
             bStart.Enabled = false;
             bStop.Enabled = true;
@@ -54,7 +55,8 @@ namespace T7_Operating_Systems_Lab1
                 }
             }
 
-            lAverage.Text = String.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString("0.00") + " tacts");
+            lAverage.Text = string.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString("0.00") + " tacts");
+            lCoeficient.Text = string.Format("Coeficient of time of free resourse " + (tacts_when_resourse_was_free / (double)current_tact).ToString("0.00"));
 
             bStart.Enabled = true;
             bStop.Enabled = false;
@@ -105,14 +107,13 @@ namespace T7_Operating_Systems_Lab1
                 {
                     is_free = false;
 
-                    //if (was_first)
-                        now_working_with_task++;
-                    //else
-                        //was_first = true;
+                    now_working_with_task++;
                 }
-                else
-                    // If no tasks now
+                else // If no tasks now
+                {
+                    tacts_when_resourse_was_free++;
                     return;
+                }
 
                 will_be_not_free_for = tasks[now_working_with_task].length;
 
@@ -147,15 +148,27 @@ namespace T7_Operating_Systems_Lab1
             is_free = true;
             waited_sum = 0;
             tasks_sum = 0;
+            tacts_when_resourse_was_free = 0;
 
             bStart.Enabled = true;
             bStop.Enabled = false;
             lAverage.Text = "";
+            lCoeficient.Text = "";
         }
 
         private void timerTest_Tick(object sender, EventArgs e)
         {
-                bStop.PerformClick();
+            bStop.PerformClick();
+        }
+
+        private void nudPossibility_ValueChanged(object sender, EventArgs e)
+        {
+            bBegin.PerformClick();
+        }
+
+        private void nudLength_ValueChanged(object sender, EventArgs e)
+        {
+            bBegin.PerformClick();
         }
     }
 }
