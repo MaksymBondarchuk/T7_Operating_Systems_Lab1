@@ -48,7 +48,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timerTest = new System.Windows.Forms.Timer(this.components);
             this.cbTestMode = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nudLength = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             this.SuspendLayout();
             // 
             // lTasks
@@ -61,7 +64,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.lTasks.GridLines = true;
-            this.lTasks.Location = new System.Drawing.Point(12, 110);
+            this.lTasks.Location = new System.Drawing.Point(12, 141);
             this.lTasks.Name = "lTasks";
             this.lTasks.Size = new System.Drawing.Size(455, 483);
             this.lTasks.TabIndex = 0;
@@ -95,7 +98,7 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(230, 64);
+            this.bStart.Location = new System.Drawing.Point(230, 90);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -106,7 +109,7 @@
             // bStop
             // 
             this.bStop.Enabled = false;
-            this.bStop.Location = new System.Drawing.Point(311, 64);
+            this.bStop.Location = new System.Drawing.Point(311, 90);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(75, 23);
             this.bStop.TabIndex = 2;
@@ -160,7 +163,7 @@
             this.columnHeader6});
             this.lQueue.GridLines = true;
             this.lQueue.HoverSelection = true;
-            this.lQueue.Location = new System.Drawing.Point(473, 110);
+            this.lQueue.Location = new System.Drawing.Point(473, 141);
             this.lQueue.Name = "lQueue";
             this.lQueue.Size = new System.Drawing.Size(128, 483);
             this.lQueue.TabIndex = 5;
@@ -175,7 +178,7 @@
             // bBegin
             // 
             this.bBegin.Enabled = false;
-            this.bBegin.Location = new System.Drawing.Point(392, 64);
+            this.bBegin.Location = new System.Drawing.Point(392, 90);
             this.bBegin.Name = "bBegin";
             this.bBegin.Size = new System.Drawing.Size(75, 23);
             this.bBegin.TabIndex = 6;
@@ -197,7 +200,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(9, 91);
+            this.label2.Location = new System.Drawing.Point(9, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 16);
             this.label2.TabIndex = 8;
@@ -207,7 +210,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(470, 94);
+            this.label3.Location = new System.Drawing.Point(470, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 16);
             this.label3.TabIndex = 9;
@@ -223,12 +226,41 @@
             this.cbTestMode.AutoSize = true;
             this.cbTestMode.Checked = true;
             this.cbTestMode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTestMode.Location = new System.Drawing.Point(473, 68);
+            this.cbTestMode.Location = new System.Drawing.Point(473, 94);
             this.cbTestMode.Name = "cbTestMode";
             this.cbTestMode.Size = new System.Drawing.Size(77, 17);
             this.cbTestMode.TabIndex = 10;
             this.cbTestMode.Text = "Test Mode";
             this.cbTestMode.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(9, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 16);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Maximal task length";
+            // 
+            // nudLength
+            // 
+            this.nudLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nudLength.Location = new System.Drawing.Point(12, 91);
+            this.nudLength.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudLength.Name = "nudLength";
+            this.nudLength.Size = new System.Drawing.Size(109, 22);
+            this.nudLength.TabIndex = 11;
+            this.nudLength.ThousandsSeparator = true;
+            this.nudLength.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // MainForm
             // 
@@ -236,7 +268,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(621, 605);
+            this.ClientSize = new System.Drawing.Size(621, 636);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.nudLength);
             this.Controls.Add(this.cbTestMode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -254,6 +288,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Operating Systems Lab1";
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +315,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timerTest;
         private System.Windows.Forms.CheckBox cbTestMode;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudLength;
     }
 }
 

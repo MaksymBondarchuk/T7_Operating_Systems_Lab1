@@ -13,6 +13,7 @@ namespace T7_Operating_Systems_Lab1
         bool is_free = true;                // Shows does processor works on some task now (on current tact)
         int will_be_not_free_for;           // How many tacts left to complete current task
         bool was_first = false;
+        int task_length;
 
         // For calculating average value
         int waited_sum = 0;
@@ -33,6 +34,8 @@ namespace T7_Operating_Systems_Lab1
             bStart.Enabled = false;
             bStop.Enabled = true;
             bBegin.Enabled = true;
+
+            task_length = Convert.ToInt32(nudLength.Value);
         }
 
         private void bStop_Click(object sender, EventArgs e)
@@ -64,7 +67,7 @@ namespace T7_Operating_Systems_Lab1
             // Deciding should we generate new task
             if ((new Random()).Next(100) < nudPossibility.Value * 100)
             {   // If yes
-                tasks.Add(new Task(number++, current_tact));
+                tasks.Add(new Task(number++, current_tact, task_length));
                 string[] strs = { tasks[tasks.Count - 1].number.ToString(),
                     tasks[tasks.Count - 1].spawned_on.ToString(),
                     tasks[tasks.Count - 1].length.ToString(),
