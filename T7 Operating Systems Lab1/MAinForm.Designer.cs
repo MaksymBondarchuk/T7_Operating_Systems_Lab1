@@ -46,6 +46,8 @@
             this.lAverage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timerTest = new System.Windows.Forms.Timer(this.components);
+            this.cbTestMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,7 +192,6 @@
             this.lAverage.Name = "lAverage";
             this.lAverage.Size = new System.Drawing.Size(0, 29);
             this.lAverage.TabIndex = 7;
-            this.lAverage.Click += new System.EventHandler(this.lAverage_Click);
             // 
             // label2
             // 
@@ -212,6 +213,23 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Performation order";
             // 
+            // timerTest
+            // 
+            this.timerTest.Interval = 10000;
+            this.timerTest.Tick += new System.EventHandler(this.timerTest_Tick);
+            // 
+            // cbTestMode
+            // 
+            this.cbTestMode.AutoSize = true;
+            this.cbTestMode.Checked = true;
+            this.cbTestMode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTestMode.Location = new System.Drawing.Point(473, 68);
+            this.cbTestMode.Name = "cbTestMode";
+            this.cbTestMode.Size = new System.Drawing.Size(77, 17);
+            this.cbTestMode.TabIndex = 10;
+            this.cbTestMode.Text = "Test Mode";
+            this.cbTestMode.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.bStart;
@@ -219,6 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(621, 605);
+            this.Controls.Add(this.cbTestMode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lAverage);
@@ -259,6 +278,8 @@
         private System.Windows.Forms.Label lAverage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timerTest;
+        private System.Windows.Forms.CheckBox cbTestMode;
     }
 }
 

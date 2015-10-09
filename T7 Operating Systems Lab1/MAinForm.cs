@@ -12,6 +12,7 @@ namespace T7_Operating_Systems_Lab1
         int now_working_with_task = -1;     // Index in list/table
         bool is_free = true;                // Shows does processor works on some task now (on current tact)
         int will_be_not_free_for;           // How many tacts left to complete current task
+        bool was_first = false;
 
         // For calculating average value
         int waited_sum = 0;
@@ -25,6 +26,8 @@ namespace T7_Operating_Systems_Lab1
         private void bStart_Click(object sender, EventArgs e)
         {
             OneTact.Start();
+            if (cbTestMode.Checked)
+                timerTest.Start();
             lAverage.Text = "";
 
             bStart.Enabled = false;
@@ -35,6 +38,8 @@ namespace T7_Operating_Systems_Lab1
         private void bStop_Click(object sender, EventArgs e)
         {
             OneTact.Stop();
+            if (cbTestMode.Checked)
+                timerTest.Stop();
 
             // Calculating average waiting time
             for (int i = 0; i < tasks.Count; i++)
@@ -93,8 +98,20 @@ namespace T7_Operating_Systems_Lab1
             // If processor becomes free
             if (is_free)
             {
-                is_free = false;
-                now_working_with_task++;
+                if (now_working_with_task + 1 < tasks.Count || now_working_with_task == -1 && tasks.Count != 0)
+                {
+                    is_free = false;
+
+                    //if (was_first)
+                        now_working_with_task++;
+                    //else
+                        //was_first = true;
+                }
+                else
+                    // If no tasks now
+                    return;
+
+                will_be_not_free_for = tasks[now_working_with_task].length;
 
                 // Calculating how long task waited
                 tasks[now_working_with_task].tacts_waited = current_tact - tasks[now_working_with_task].spawned_on;
@@ -133,9 +150,9 @@ namespace T7_Operating_Systems_Lab1
             lAverage.Text = "";
         }
 
-        private void lAverage_Click(object sender, EventArgs e)
+        private void timerTest_Tick(object sender, EventArgs e)
         {
-
+                bStop.PerformClick();
         }
     }
 }
