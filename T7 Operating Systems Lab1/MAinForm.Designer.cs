@@ -226,8 +226,6 @@
             // cbTestMode
             // 
             this.cbTestMode.AutoSize = true;
-            this.cbTestMode.Checked = true;
-            this.cbTestMode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbTestMode.Location = new System.Drawing.Point(473, 94);
             this.cbTestMode.Name = "cbTestMode";
             this.cbTestMode.Size = new System.Drawing.Size(77, 17);

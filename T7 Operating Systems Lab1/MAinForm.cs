@@ -158,7 +158,8 @@ namespace T7_Operating_Systems_Lab1
 
         private void timerTest_Tick(object sender, EventArgs e)
         {
-            bStop.PerformClick();
+            if (cbTestMode.Checked)
+                bStop.PerformClick();
         }
 
         private void nudPossibility_ValueChanged(object sender, EventArgs e)
