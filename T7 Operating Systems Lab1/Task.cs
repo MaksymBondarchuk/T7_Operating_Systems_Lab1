@@ -9,13 +9,18 @@ namespace T7_Operating_Systems_Lab1
         public int Length;
         public int CompletedOn = -1;  // Not completed yet
         public int Memory;
+        public int MemoryRef;
 
         public Task(int number, int spawnedOn, int length, int memory)
         {
-            this.Number = number;
-            this.SpawnedOn = spawnedOn;
-            this.Length = (new Random()).Next(1, length + 1);    // from 1 till length
-            this.Memory = (new Random()).Next(1, memory + 1);
+            Number = number;
+            SpawnedOn = spawnedOn;
+            var random = new Random();
+            Length = random.Next(1, length + 1);    // from 1 till length
+            var _memory = random.Next(1, memory + 1);
+            if (_memory%4 != 0)
+                _memory += 4 - _memory%4;
+            Memory = _memory;
         }
     }
 }

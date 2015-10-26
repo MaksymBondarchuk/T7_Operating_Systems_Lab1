@@ -76,22 +76,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "#";
-            this.columnHeader1.Width = 62;
+            this.columnHeader1.Width = 48;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Spawned on";
-            this.columnHeader2.Width = 83;
+            this.columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Length (in tacts)";
-            this.columnHeader3.Width = 114;
+            this.columnHeader3.Width = 91;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Started on";
-            this.columnHeader6.Width = 76;
+            this.columnHeader6.Width = 110;
             // 
             // columnHeader4
             // 
@@ -101,7 +101,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Memory (B)";
-            this.columnHeader7.Width = 90;
+            this.columnHeader7.Width = 71;
             // 
             // bStart
             // 
