@@ -120,9 +120,6 @@ namespace T7_Operating_Systems_Lab1
                 lTasks.Items[now_working_with_task] = item;
 
                 string[] strs1 = { tasks[now_working_with_task].number.ToString() };
-                lQueue.Items.Add(new ListViewItem(strs1));
-                if (0 < lQueue.Items.Count)
-                    lQueue.EnsureVisible(lQueue.Items.Count - 1);
             }
         }
 
@@ -131,7 +128,6 @@ namespace T7_Operating_Systems_Lab1
             // Rollback
             OneTact.Stop();
             lTasks.Items.Clear();
-            lQueue.Items.Clear();
             tasks.Clear();
             current_tact = 0;
             number = 0;

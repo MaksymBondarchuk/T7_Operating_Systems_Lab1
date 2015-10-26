@@ -60,7 +60,7 @@
             this.columnHeader4,
             this.columnHeader7});
             this.lTasks.GridLines = true;
-            this.lTasks.Location = new System.Drawing.Point(12, 141);
+            this.lTasks.Location = new System.Drawing.Point(12, 89);
             this.lTasks.Name = "lTasks";
             this.lTasks.Size = new System.Drawing.Size(557, 483);
             this.lTasks.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(230, 90);
+            this.bStart.Location = new System.Drawing.Point(592, 41);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(75, 23);
             this.bStart.TabIndex = 1;
@@ -100,7 +100,7 @@
             // bStop
             // 
             this.bStop.Enabled = false;
-            this.bStop.Location = new System.Drawing.Point(311, 90);
+            this.bStop.Location = new System.Drawing.Point(673, 41);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(75, 23);
             this.bStop.TabIndex = 2;
@@ -152,7 +152,7 @@
             // bBegin
             // 
             this.bBegin.Enabled = false;
-            this.bBegin.Location = new System.Drawing.Point(392, 90);
+            this.bBegin.Location = new System.Drawing.Point(754, 41);
             this.bBegin.Name = "bBegin";
             this.bBegin.Size = new System.Drawing.Size(75, 23);
             this.bBegin.TabIndex = 6;
@@ -164,7 +164,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(9, 122);
+            this.label2.Location = new System.Drawing.Point(9, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 16);
             this.label2.TabIndex = 8;
@@ -174,7 +174,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(9, 72);
+            this.label4.Location = new System.Drawing.Point(137, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 16);
             this.label4.TabIndex = 12;
@@ -183,7 +183,7 @@
             // nudLength
             // 
             this.nudLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nudLength.Location = new System.Drawing.Point(12, 91);
+            this.nudLength.Location = new System.Drawing.Point(140, 41);
             this.nudLength.Minimum = new decimal(new int[] {
             1,
             0,
