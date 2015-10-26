@@ -6,18 +6,14 @@ namespace T7_Operating_Systems_Lab1
 {
     public partial class MainForm : Form
     {
-        List<Task> tasks = new List<Task>();
-        int current_tact = 0;               // Number of the current tact
-        int number = 0;                     // Number of the new task
-        int now_working_with_task = -1;     // Index in list/table
-        bool is_free = true;                // Shows does processor works on some task now (on current tact)
-        int will_be_not_free_for;           // How many tacts left to complete current task
-        int task_length;
-        int tacts_when_resourse_was_free = 0;
-
-        // For calculating average value
-        int waited_sum = 0;
-        int tasks_sum = 0;
+        private readonly List<Task> _tasks = new List<Task>();
+        private int _currentTact;               // Number of the current tact
+        private int _number;                     // Number of the new task
+        private int _nowWorkingWithTask = -1;     // Index in list/table
+        private bool _isFree = true;                // Shows does processor works on some task now (on current tact)
+        private int _willBeNotFreeFor;           // How many tacts left to complete current task
+        private int _taskLength;
+        private int _maxMemory;
 
         public MainForm()
         {
@@ -32,22 +28,13 @@ namespace T7_Operating_Systems_Lab1
             bStop.Enabled = true;
             bBegin.Enabled = true;
 
-            task_length = Convert.ToInt32(nudLength.Value);
+            _taskLength = Convert.ToInt32(nudLength.Value);
+            _maxMemory = Convert.ToInt32(nudMemory.Value);
         }
 
         private void bStop_Click(object sender, EventArgs e)
         {
             OneTact.Stop();
-     
-            // Calculating average waiting time
-            for (int i = 0; i < tasks.Count; i++)
-            {
-                if (tasks[i].completed_on != -1)
-                {
-                    waited_sum += tasks[i].tacts_waited;
-                    tasks_sum++;
-                }
-            }
 
             bStart.Enabled = true;
             bStop.Enabled = false;
@@ -55,71 +42,64 @@ namespace T7_Operating_Systems_Lab1
 
         private void OneTact_Tick(object sender, EventArgs e)
         {
-            current_tact++;
+            _currentTact++;
 
             // Deciding should we generate new task
             if ((new Random()).Next(100) < nudPossibility.Value * 100)
             {   // If yes
-                tasks.Add(new Task(number++, current_tact, task_length));
-                string[] strs = { tasks[tasks.Count - 1].number.ToString(),
-                    tasks[tasks.Count - 1].spawned_on.ToString(),
-                    tasks[tasks.Count - 1].length.ToString(),
-                    "Not completed yet", "Not started yet" };
+                _tasks.Add(new Task(_number++, _currentTact, _taskLength, _maxMemory));
+                string[] strs = { _tasks[_tasks.Count - 1].Number.ToString(),
+                    _tasks[_tasks.Count - 1].SpawnedOn.ToString(),
+                    _tasks[_tasks.Count - 1].Length.ToString(),
+                    "Not started yet", "Not started yet",
+                    _tasks[_tasks.Count - 1].Memory.ToString() };
                 lTasks.Items.Add(new ListViewItem(strs));
                 if (0 < lTasks.Items.Count)     // Moving to the bottom of the listview
                     lTasks.EnsureVisible(lTasks.Items.Count - 1);
             }
 
             // If processor performing some task now
-            if (!is_free)
+            if (!_isFree)
             {
-                will_be_not_free_for--;
-                if (will_be_not_free_for == 0)
+                _willBeNotFreeFor--;
+                if (_willBeNotFreeFor == 0)
                 {   // If it just ended
-                    is_free = true;
+                    _isFree = true;
 
                     // Calculating finish time
-                    tasks[now_working_with_task].completed_on = current_tact;
+                    _tasks[_nowWorkingWithTask].CompletedOn = _currentTact;
 
-                    string[] strs = { tasks[now_working_with_task].number.ToString(),
-                        tasks[now_working_with_task].spawned_on.ToString(),
-                        tasks[now_working_with_task].length.ToString(),
-                        tasks[now_working_with_task].completed_on.ToString(),
-                        tasks[now_working_with_task].tacts_waited.ToString() };
-                    ListViewItem item = new ListViewItem(strs);
-                    lTasks.Items[now_working_with_task] = item;
+                    string[] strs = { _tasks[_nowWorkingWithTask].Number.ToString(),
+                        _tasks[_nowWorkingWithTask].SpawnedOn.ToString(),
+                        _tasks[_nowWorkingWithTask].Length.ToString(),
+                        (_tasks[_nowWorkingWithTask].CompletedOn - _tasks[_nowWorkingWithTask].Length).ToString(),
+                        _tasks[_nowWorkingWithTask].CompletedOn.ToString(),
+                        _tasks[_tasks.Count - 1].Memory.ToString() };
+                    var item = new ListViewItem(strs);
+                    lTasks.Items[_nowWorkingWithTask] = item;
                 }
             }
 
             // If processor becomes free
-            if (is_free)
+            if (_isFree)
             {
-                if (now_working_with_task + 1 < tasks.Count || now_working_with_task == -1 && tasks.Count != 0)
+                if (_nowWorkingWithTask + 1 < _tasks.Count || _nowWorkingWithTask == -1 && _tasks.Count != 0)
                 {
-                    is_free = false;
+                    _isFree = false;
 
-                    now_working_with_task++;
+                    _nowWorkingWithTask++;
                 }
                 else // If no tasks now
-                {
-                    tacts_when_resourse_was_free++;
                     return;
-                }
 
-                will_be_not_free_for = tasks[now_working_with_task].length;
+                _willBeNotFreeFor = _tasks[_nowWorkingWithTask].Length;
 
-                // Calculating how long task waited
-                tasks[now_working_with_task].tacts_waited = current_tact - tasks[now_working_with_task].spawned_on;
-
-                string[] strs = { tasks[now_working_with_task].number.ToString(),
-                    tasks[now_working_with_task].spawned_on.ToString(),
-                    tasks[now_working_with_task].length.ToString(),
-                    "Not completed yet",
-                    tasks[now_working_with_task].tacts_waited.ToString() };
-                ListViewItem item = new ListViewItem(strs);
-                lTasks.Items[now_working_with_task] = item;
-
-                string[] strs1 = { tasks[now_working_with_task].number.ToString() };
+                string[] strs = { _tasks[_nowWorkingWithTask].Number.ToString(),
+                    _tasks[_nowWorkingWithTask].SpawnedOn.ToString(),
+                    _tasks[_nowWorkingWithTask].Length.ToString(),
+                    "Not completed yet" };
+                var item = new ListViewItem(strs);
+                lTasks.Items[_nowWorkingWithTask] = item;
             }
         }
 
@@ -128,14 +108,11 @@ namespace T7_Operating_Systems_Lab1
             // Rollback
             OneTact.Stop();
             lTasks.Items.Clear();
-            tasks.Clear();
-            current_tact = 0;
-            number = 0;
-            now_working_with_task = -1;
-            is_free = true;
-            waited_sum = 0;
-            tasks_sum = 0;
-            tacts_when_resourse_was_free = 0;
+            _tasks.Clear();
+            _currentTact = 0;
+            _number = 0;
+            _nowWorkingWithTask = -1;
+            _isFree = true;
 
             bStart.Enabled = true;
             bStop.Enabled = false;
