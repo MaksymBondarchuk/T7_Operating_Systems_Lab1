@@ -27,10 +27,6 @@ namespace T7_Operating_Systems_Lab1
         private void bStart_Click(object sender, EventArgs e)
         {
             OneTact.Start();
-            if (cbTestMode.Checked)
-                timerTest.Start();
-            lAverage.Text = "";
-            lCoeficient.Text = "";
 
             bStart.Enabled = false;
             bStop.Enabled = true;
@@ -42,9 +38,7 @@ namespace T7_Operating_Systems_Lab1
         private void bStop_Click(object sender, EventArgs e)
         {
             OneTact.Stop();
-            if (cbTestMode.Checked)
-                timerTest.Stop();
-
+     
             // Calculating average waiting time
             for (int i = 0; i < tasks.Count; i++)
             {
@@ -54,9 +48,6 @@ namespace T7_Operating_Systems_Lab1
                     tasks_sum++;
                 }
             }
-
-            lAverage.Text = string.Format("Average waiting time is " + (waited_sum / (double)tasks_sum).ToString("0.00") + " tacts");
-            lCoeficient.Text = string.Format("Coeficient of time of free resourse " + (tacts_when_resourse_was_free / (double)current_tact).ToString("0.00"));
 
             bStart.Enabled = true;
             bStop.Enabled = false;
@@ -152,14 +143,6 @@ namespace T7_Operating_Systems_Lab1
 
             bStart.Enabled = true;
             bStop.Enabled = false;
-            lAverage.Text = "";
-            lCoeficient.Text = "";
-        }
-
-        private void timerTest_Tick(object sender, EventArgs e)
-        {
-            if (cbTestMode.Checked)
-                bStop.PerformClick();
         }
 
         private void nudPossibility_ValueChanged(object sender, EventArgs e)
