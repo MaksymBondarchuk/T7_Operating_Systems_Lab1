@@ -45,39 +45,21 @@ namespace T7_Operating_Systems_Lab1
             // Deciding should we generate new task
             if ((new Random()).Next(100) < nudPossibility.Value * 100)
             {   // If yes
-                var _taskNew = new Task(_number++, _currentTact, _taskLength, _maxMemory);
-                _tasksToPerform.Add(_taskNew);
-                string[] strsNew = { _taskNew.Number.ToString(),
-                    _taskNew.SpawnedOn.ToString(),
-                    _taskNew.Length.ToString(),
+                var taskNew = new Task(_number++, _currentTact, _taskLength, _maxMemory);
+                _tasksToPerform.Add(taskNew);
+                string[] strsNew = { taskNew.Number.ToString(),
+                    taskNew.SpawnedOn.ToString(),
+                    taskNew.Length.ToString(),
                     "Not started yet", "Not completed yet",
-                    _taskNew.Memory.ToString() };
+                    taskNew.Memory.ToString() };
                 lvTasks.Items.Add(new ListViewItem(strsNew));
                 if (0 < lvTasks.Items.Count)     // Moving to the bottom of the listview
                     lvTasks.EnsureVisible(lvTasks.Items.Count - 1);
             }
 
-            // Looking for tasks we can perform
-            for (var i = 0; i < _tasksToPerform.Count; i++)
-            {
-                var refTryAlloc = _memory.mem_alloc(_tasksToPerform[i].Memory);
-                if (refTryAlloc == -1) continue;
-
-                _tasksToPerform[i].MemoryRef = refTryAlloc;
-                _tasksToPerform[i].StartedOn = _currentTact;
-                _tasksActive.Add(_tasksToPerform[i]);
-
-                string[] strsStarted = { _tasksToPerform[i].Number.ToString(),
-                    _tasksToPerform[i].SpawnedOn.ToString(),
-                    _tasksToPerform[i].Length.ToString(),
-                    _currentTact.ToString(), "Not completed yet",
-                    _tasksToPerform[i].Memory.ToString() };
-                lvTasks.Items[_tasksToPerform[i].Number] = new ListViewItem(strsStarted);
-
-                _tasksToPerform.RemoveAt(i);
-            }
-
             // Looking for completed tasks
+            //int i = 0;
+            //while (i < )
             for (var i = 0; i < _tasksActive.Count; i++)
             {
                 if (_tasksActive[i].StartedOn + _tasksActive[i].Length != _currentTact) continue;
@@ -94,6 +76,28 @@ namespace T7_Operating_Systems_Lab1
 
                 _memory.mem_free(_tasksActive[i].MemoryRef);
                 _tasksActive.RemoveAt(i);
+                i--;
+            }
+
+            // Looking for tasks we can perform
+            for (var i = 0; i < _tasksToPerform.Count; i++)
+            {
+                var refTryAlloc = _memory.mem_alloc(_tasksToPerform[i].Memory);
+                if (refTryAlloc == -1) continue;
+
+                _tasksToPerform[i].MemoryRef = refTryAlloc;
+                _tasksToPerform[i].StartedOn = _currentTact;
+
+                string[] strsStarted = { _tasksToPerform[i].Number.ToString(),
+                    _tasksToPerform[i].SpawnedOn.ToString(),
+                    _tasksToPerform[i].Length.ToString(),
+                    _currentTact.ToString(), "Not completed yet",
+                    _tasksToPerform[i].Memory.ToString() };
+                lvTasks.Items[_tasksToPerform[i].Number] = new ListViewItem(strsStarted);
+
+                _tasksActive.Add(_tasksToPerform[i]);
+                _tasksToPerform.RemoveAt(i);
+                i--;
             }
 
             // Adding information about memory

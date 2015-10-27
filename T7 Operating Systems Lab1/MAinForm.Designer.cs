@@ -50,6 +50,7 @@
             this.lvMemory = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemory)).BeginInit();
@@ -76,7 +77,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tact #";
+            this.columnHeader1.Text = "Task #";
             this.columnHeader1.Width = 48;
             // 
             // columnHeader2
@@ -86,23 +87,23 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Length (in tacts)";
-            this.columnHeader3.Width = 91;
+            this.columnHeader3.Text = "Length";
+            this.columnHeader3.Width = 79;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Started on";
-            this.columnHeader6.Width = 110;
+            this.columnHeader6.Width = 114;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Completed on";
-            this.columnHeader4.Width = 101;
+            this.columnHeader4.Width = 119;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Memory (B)";
-            this.columnHeader7.Width = 71;
+            this.columnHeader7.Width = 83;
             // 
             // bStart
             // 
@@ -145,10 +146,10 @@
             this.nudPossibility.TabIndex = 3;
             this.nudPossibility.ThousandsSeparator = true;
             this.nudPossibility.Value = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
-            0});
+            65536});
             this.nudPossibility.ValueChanged += new System.EventHandler(this.nudPossibility_ValueChanged);
             // 
             // label1
@@ -211,7 +212,7 @@
             this.nudLength.TabIndex = 11;
             this.nudLength.ThousandsSeparator = true;
             this.nudLength.Value = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -251,7 +252,7 @@
             this.nudMemory.TabIndex = 13;
             this.nudMemory.ThousandsSeparator = true;
             this.nudMemory.Value = new decimal(new int[] {
-            64,
+            512,
             0,
             0,
             0});
@@ -262,11 +263,11 @@
             this.lvMemory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader8});
-            this.lvMemory.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMemory.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvMemory.GridLines = true;
             this.lvMemory.Location = new System.Drawing.Point(575, 89);
             this.lvMemory.Name = "lvMemory";
-            this.lvMemory.Size = new System.Drawing.Size(528, 483);
+            this.lvMemory.Size = new System.Drawing.Size(608, 483);
             this.lvMemory.TabIndex = 15;
             this.lvMemory.UseCompatibleStateImageBehavior = false;
             this.lvMemory.View = System.Windows.Forms.View.Details;
@@ -279,7 +280,17 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Memory state";
-            this.columnHeader8.Width = 421;
+            this.columnHeader8.Width = 514;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 585);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(954, 33);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "If logic adress is 5 and chapter adress is 100 then physical adress is 105";
             // 
             // MainForm
             // 
@@ -287,7 +298,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1115, 636);
+            this.ClientSize = new System.Drawing.Size(1195, 636);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lvMemory);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudMemory);
@@ -336,6 +348,7 @@
         private System.Windows.Forms.ListView lvMemory;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -18,9 +18,9 @@ namespace T7_Operating_Systems_Lab1
             SpawnedOn = spawnedOn;
             var random = new Random();
             Length = random.Next(1, length + 1);    // from 1 till length
-            var mem = random.Next(1, memory + 1);
+            var mem = random.Next(1, memory - 8 + 1);
             if (mem % 8 != 0)
-                mem += 8 - mem % 4;
+                mem += 8 - mem % 8;
             Memory = mem;
         }
     }
