@@ -7,7 +7,8 @@ namespace T7_Operating_Systems_Lab1
         public int Number;
         public int SpawnedOn;
         public int Length;
-        public int CompletedOn = -1;  // Not completed yet
+        public int StartedOn;
+        public int CompletedOn;
         public int Memory;
         public int MemoryRef;
 
@@ -17,10 +18,10 @@ namespace T7_Operating_Systems_Lab1
             SpawnedOn = spawnedOn;
             var random = new Random();
             Length = random.Next(1, length + 1);    // from 1 till length
-            var _memory = random.Next(1, memory + 1);
-            if (_memory%4 != 0)
-                _memory += 4 - _memory%4;
-            Memory = _memory;
+            var mem = random.Next(1, memory + 1);
+            if (mem % 8 != 0)
+                mem += 8 - mem % 4;
+            Memory = mem;
         }
     }
 }

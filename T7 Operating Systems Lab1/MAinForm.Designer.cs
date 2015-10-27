@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lTasks = new System.Windows.Forms.ListView();
+            this.lvTasks = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,7 +47,7 @@
             this.nudLength = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.nudMemory = new System.Windows.Forms.NumericUpDown();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvMemory = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
@@ -55,27 +55,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMemory)).BeginInit();
             this.SuspendLayout();
             // 
-            // lTasks
+            // lvTasks
             // 
-            this.lTasks.AutoArrange = false;
-            this.lTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvTasks.AutoArrange = false;
+            this.lvTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader6,
             this.columnHeader4,
             this.columnHeader7});
-            this.lTasks.GridLines = true;
-            this.lTasks.Location = new System.Drawing.Point(12, 89);
-            this.lTasks.Name = "lTasks";
-            this.lTasks.Size = new System.Drawing.Size(557, 483);
-            this.lTasks.TabIndex = 0;
-            this.lTasks.UseCompatibleStateImageBehavior = false;
-            this.lTasks.View = System.Windows.Forms.View.Details;
+            this.lvTasks.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvTasks.GridLines = true;
+            this.lvTasks.Location = new System.Drawing.Point(12, 89);
+            this.lvTasks.Name = "lvTasks";
+            this.lvTasks.Size = new System.Drawing.Size(557, 483);
+            this.lvTasks.TabIndex = 0;
+            this.lvTasks.UseCompatibleStateImageBehavior = false;
+            this.lvTasks.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "#";
+            this.columnHeader1.Text = "Tact #";
             this.columnHeader1.Width = 48;
             // 
             // columnHeader2
@@ -144,10 +145,10 @@
             this.nudPossibility.TabIndex = 3;
             this.nudPossibility.ThousandsSeparator = true;
             this.nudPossibility.Value = new decimal(new int[] {
-            3,
+            1,
             0,
             0,
-            65536});
+            0});
             this.nudPossibility.ValueChanged += new System.EventHandler(this.nudPossibility_ValueChanged);
             // 
             // label1
@@ -255,19 +256,20 @@
             0,
             0});
             // 
-            // listView1
+            // lvMemory
             // 
-            this.listView1.AutoArrange = false;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvMemory.AutoArrange = false;
+            this.lvMemory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader8});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(575, 89);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(528, 483);
-            this.listView1.TabIndex = 15;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvMemory.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMemory.GridLines = true;
+            this.lvMemory.Location = new System.Drawing.Point(575, 89);
+            this.lvMemory.Name = "lvMemory";
+            this.lvMemory.Size = new System.Drawing.Size(528, 483);
+            this.lvMemory.TabIndex = 15;
+            this.lvMemory.UseCompatibleStateImageBehavior = false;
+            this.lvMemory.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader5
             // 
@@ -286,7 +288,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1115, 636);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvMemory);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudMemory);
             this.Controls.Add(this.label4);
@@ -297,7 +299,7 @@
             this.Controls.Add(this.nudPossibility);
             this.Controls.Add(this.bStop);
             this.Controls.Add(this.bStart);
-            this.Controls.Add(this.lTasks);
+            this.Controls.Add(this.lvTasks);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -313,7 +315,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lTasks;
+        private System.Windows.Forms.ListView lvTasks;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -331,7 +333,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudMemory;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvMemory;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader8;
     }
