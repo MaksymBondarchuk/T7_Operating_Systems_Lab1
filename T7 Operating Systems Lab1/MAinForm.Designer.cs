@@ -288,9 +288,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(9, 585);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(954, 33);
+            this.label5.Size = new System.Drawing.Size(1002, 33);
             this.label5.TabIndex = 16;
-            this.label5.Text = "If logic adress is 5 and chapter adress is 100 then physical adress is 105";
+            this.label5.Text = "If logic address is 5 and chapter address is 100 then physical address is 105";
             // 
             // MainForm
             // 
@@ -316,7 +316,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Operating Systems Lab1";
+            this.Text = "Operating Systems Lab3";
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemory)).EndInit();

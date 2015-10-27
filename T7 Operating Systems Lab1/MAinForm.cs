@@ -48,10 +48,10 @@ namespace T7_Operating_Systems_Lab1
                 var taskNew = new Task(_number++, _currentTact, _taskLength, _maxMemory);
                 _tasksToPerform.Add(taskNew);
                 string[] strsNew = { taskNew.Number.ToString(),
-                    taskNew.SpawnedOn.ToString(),
-                    taskNew.Length.ToString(),
-                    "Not started yet", "Not completed yet",
-                    taskNew.Memory.ToString() };
+            taskNew.SpawnedOn.ToString(),
+            taskNew.Length.ToString(),
+            "Not started yet", "Not completed yet",
+            taskNew.Memory.ToString() };
                 lvTasks.Items.Add(new ListViewItem(strsNew));
                 if (0 < lvTasks.Items.Count)     // Moving to the bottom of the listview
                     lvTasks.EnsureVisible(lvTasks.Items.Count - 1);
@@ -67,11 +67,11 @@ namespace T7_Operating_Systems_Lab1
                 _tasksActive[i].CompletedOn = _currentTact;
 
                 string[] strsCompleted = { _tasksActive[i].Number.ToString(),
-                    _tasksActive[i].SpawnedOn.ToString(),
-                    _tasksActive[i].Length.ToString(),
-                    _tasksActive[i].StartedOn.ToString(),
-                    _tasksActive[i].CompletedOn.ToString(),
-                    _tasksActive[i].Memory.ToString() };
+            _tasksActive[i].SpawnedOn.ToString(),
+            _tasksActive[i].Length.ToString(),
+            _tasksActive[i].StartedOn.ToString(),
+            _tasksActive[i].CompletedOn.ToString(),
+            _tasksActive[i].Memory.ToString() };
                 lvTasks.Items[_tasksActive[i].Number] = new ListViewItem(strsCompleted);
 
                 _memory.mem_free(_tasksActive[i].MemoryRef);
@@ -89,10 +89,10 @@ namespace T7_Operating_Systems_Lab1
                 _tasksToPerform[i].StartedOn = _currentTact;
 
                 string[] strsStarted = { _tasksToPerform[i].Number.ToString(),
-                    _tasksToPerform[i].SpawnedOn.ToString(),
-                    _tasksToPerform[i].Length.ToString(),
-                    _currentTact.ToString(), "Not completed yet",
-                    _tasksToPerform[i].Memory.ToString() };
+            _tasksToPerform[i].SpawnedOn.ToString(),
+            _tasksToPerform[i].Length.ToString(),
+            _currentTact.ToString(), "Not completed yet",
+            _tasksToPerform[i].Memory.ToString() };
                 lvTasks.Items[_tasksToPerform[i].Number] = new ListViewItem(strsStarted);
 
                 _tasksActive.Add(_tasksToPerform[i]);
@@ -102,7 +102,7 @@ namespace T7_Operating_Systems_Lab1
 
             // Adding information about memory
             string[] strsMem = { _currentTact.ToString(),
-                    _memory.mem_dump() };
+            _memory.mem_dump() };
             var itemMem = new ListViewItem(strsMem);
             lvMemory.Items.Add(itemMem);
             if (0 < lvMemory.Items.Count)     // Moving to the bottom of the listview
@@ -117,7 +117,7 @@ namespace T7_Operating_Systems_Lab1
             OneTact.Stop();
             lvTasks.Items.Clear();
             lvMemory.Items.Clear();
-            
+
             _tasksToPerform.Clear();
             _tasksActive.Clear();
             _currentTact = 0;
