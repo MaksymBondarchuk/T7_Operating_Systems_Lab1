@@ -100,5 +100,15 @@ namespace T7_Operating_Systems_Lab1
 
             return result;
         }
+
+        public int Offset(int idx)
+        {
+            for (var i = 0; i < _infoInUse.Count; i++)
+                if (idx == _infoInUse[i].Addr)
+                {
+                    return _infoInUse[i].Addr;
+                }
+            return -1;
+        }
     };
 }

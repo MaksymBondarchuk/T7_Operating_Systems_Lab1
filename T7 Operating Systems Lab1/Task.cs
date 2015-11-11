@@ -11,6 +11,7 @@ namespace T7_Operating_Systems_Lab1
         public int CompletedOn;
         public int Memory;
         public int MemoryRef;
+        public int Offset = -1;
 
         public Task(int number, int spawnedOn, int length, int memory)
         {

@@ -51,6 +51,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
+            this.Offset = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nudPossibility)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemory)).BeginInit();
@@ -65,7 +66,8 @@
             this.columnHeader3,
             this.columnHeader6,
             this.columnHeader4,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.Offset});
             this.lvTasks.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvTasks.GridLines = true;
             this.lvTasks.Location = new System.Drawing.Point(12, 89);
@@ -88,17 +90,17 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Length";
-            this.columnHeader3.Width = 79;
+            this.columnHeader3.Width = 54;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Started on";
-            this.columnHeader6.Width = 114;
+            this.columnHeader6.Width = 92;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Completed on";
-            this.columnHeader4.Width = 119;
+            this.columnHeader4.Width = 93;
             // 
             // columnHeader7
             // 
@@ -292,6 +294,10 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "If logic address is 5 and chapter address is 100 then physical address is 105";
             // 
+            // Offset
+            // 
+            this.Offset.Text = "Offset";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.bStart;
@@ -349,6 +355,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader Offset;
     }
 }
 
