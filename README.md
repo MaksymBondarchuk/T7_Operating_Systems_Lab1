@@ -1,3 +1,5 @@
+Contains 3 branches for different labs.
+
 # T7-Operating-Systems-Lab1
 
 Realises SJF Shortest Job First strategy.
